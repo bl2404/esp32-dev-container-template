@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "ESP-IDF",
-            "compileCommands": "${workspaceFolder}/projects/prop_rig/build/compile_commands.json",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
             "intelliSenseMode": "gcc-x64",
             "cStandard": "c11",
             "cppStandard": "c++17"

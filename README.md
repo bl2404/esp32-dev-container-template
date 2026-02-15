@@ -21,8 +21,7 @@ Most commonly used idf.py commands are added to bash history so no retyping is r
 - Open your project folder in VSCode
 - Add submodule: `git add submodule https://github.com/bl2404/esp32-dev-container-template.git`
 - Add symlink to .devcontainer folder: `ln -s esp32-dev-container-template/.devcontainer/ .devcontainer`
-- Add create .vscode folder: `mkdir .vscode -p`
-- Add symlink to .vscode/c_cpp_properties.json: `ln -s esp32-dev-container-template/.vscode/c_cpp_properties.json .vscode/c_cpp_properties.json` 
+- Add symlink to .vscode/c_cpp_properties.json: `ln -s ./esp32-dev-container-template/.vscode .vscode` 
 - Via command pallette reopen your project folder in container: `> Dev Containers: Open folder in container`
 
 Alternatively, .devconatainer and .vscode can be simply copied to your project folder. 
