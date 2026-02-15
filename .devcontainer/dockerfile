@@ -1,0 +1,28 @@
+FROM debian:latest
+
+RUN apt-get update
+RUN apt-get install git vim wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0 -y apt-transport-https
+
+RUN mkdir -p /home/esp
+WORKDIR /home/esp
+RUN git clone https://github.com/espressif/esp-idf.git
+ARG IDF_TARGET=esp32c3
+RUN ./esp-idf/install.sh ${IDF_TARGET}
+ENV IDF_PATH=/home/esp/esp-idf
+ENV IDF_PATH_FORCE=1
+ENV PATH="/root/.local/bin:/home/esp/.local/bin:${PATH}"
+
+RUN echo "idf.py build" >> /root/.bash_history
+RUN echo "idf.py -p /dev/ttyACM0 flash" >> /root/.bash_history
+RUN echo "idf.py -p /dev/ttyACM0 flash monitor" >> /root/.bash_history
+RUN echo "idf.py fullclean" >> /root/.bash_history
+# Add ESP-IDF export to root bashrc so the environment is available for interactive shells
+RUN echo ". /home/esp/esp-idf/export.sh" >> /root/.bashrc
+
+# Build hello_world example
+RUN . ./esp-idf/export.sh && \
+    cd ./esp-idf/examples/get-started/hello_world/ && \
+    idf.py set-target ${IDF_TARGET} && \
+    idf.py build
+
+CMD ["/bin/bash"]
