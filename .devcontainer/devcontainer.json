@@ -19,7 +19,6 @@
 			"settings": {
 				"editor.formatOnPaste": true ,
 				"editor.formatOnSave": true,
-				"editor.formatOnSaveMode": "modifications",
 				"editor.formatOnType": true
 			},
 			"extensions": [
