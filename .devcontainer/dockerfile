@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:stable-slim
 
 RUN apt-get update
 RUN apt-get install git vim wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0 -y apt-transport-https
@@ -12,10 +12,12 @@ ENV IDF_PATH=/home/esp/esp-idf
 ENV IDF_PATH_FORCE=1
 ENV PATH="/root/.local/bin:/home/esp/.local/bin:${PATH}"
 
-RUN echo "idf.py build" >> /root/.bash_history
 RUN echo "idf.py -p /dev/ttyACM0 flash" >> /root/.bash_history
 RUN echo "idf.py -p /dev/ttyACM0 flash monitor" >> /root/.bash_history
+RUN echo "idf.py reconfigure" >> /root/.bash_history
+RUN echo "idf.py build" >> /root/.bash_history
 RUN echo "idf.py fullclean" >> /root/.bash_history
+RUN echo "rm build/ -rf" >> /root/.bash_history
 # Add ESP-IDF export to root bashrc so the environment is available for interactive shells
 RUN echo ". /home/esp/esp-idf/export.sh" >> /root/.bashrc
 

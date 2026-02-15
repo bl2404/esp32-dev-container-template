@@ -4,7 +4,10 @@
 	"name": "Existing Dockerfile",
 	"build": {
 		"context": "..",
-		"dockerfile": "./dockerfile"
+		"dockerfile": "./dockerfile",
+		"args": {
+			"IDF_TARGET": "esp32c3"
+		}
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

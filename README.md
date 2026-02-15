@@ -18,18 +18,21 @@ Most commonly used idf.py commands are added to bash history so no retyping is r
 
 
 ## VSCode dev container
-- Navigate to your project folder using command line
+- Open your project folder in VSCode
 - Add submodule: `git add submodule https://github.com/bl2404/esp32-dev-container-template.git` or simply git clone if project is not a repository
-- Open vscode
-- File -> Add Folder to Workspace -> Select dev container
+- Add symlink to .devcontainer folder: `ln -s esp32-dev-container-template/.devcontainer/ .devcontainer`
+- Add create .vscode folder: `mkdir .vscode -p`
+- Add symlink to .vscode/c_cpp_properties.json: `ln -s esp32-dev-container-template/.vscode/c_cpp_properties.json .vscode/c_cpp_properties.json` 
+- Via command pallette reopen your project folder in container: `> Dev Containers: Open folder in container`
 
-There are no `tasks.json`, `launch.json` configured. build, flashing is done through terminal window using `idf.py` commands described above.  
+Alternatively, .devconatainer and .vscode can be simply copied to your project folder. 
+There are no `tasks.json`, `launch.json` configured. build, flashing is done through terminal window using `idf.py` commands described above.
 
 ## Other useful info
 
 ESP32-C3 PINOUT SEEDUINO XIAO
 
-  USB<br>
+..USB..<br>
 2.....5V<br>
 3.....GND<br>
 4.....3.3V<br>
