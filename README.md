@@ -18,6 +18,12 @@ Most commonly used idf.py commands are added to bash history so no retyping is r
 
 
 ## VSCode dev container
+
+### Prerequisites
+- VSCode installed
+- VSCode plugin installed: Dev Containers
+- Make sure ESP32 is USB connected before container startup
+### Steps
 - Open your project folder in VSCode
 - Add submodule: `git add submodule https://github.com/bl2404/esp32-dev-container-template.git`
 - Add symlink to .devcontainer folder: `ln -s esp32-dev-container-template/.devcontainer/ .devcontainer`
@@ -29,13 +35,15 @@ There are no `tasks.json`, `launch.json` configured. build, flashing is done thr
 
 ## Other useful info
 
-ESP32-C3 PINOUT SEEDUINO XIAO
-
+ESP32-C3 PINOUT SEEDUINO XIAO (to be used as int e.g. `#define LED_PIN 2`)
 ```
 -----USB-----
 |2        5V|
 |3       GND|
 |4      3.3V|
-   (...)
+|5        10| 
+|6(SDA)    9|
+|7(SCK)    8|
+|?         ?|
 ------------
 ```
