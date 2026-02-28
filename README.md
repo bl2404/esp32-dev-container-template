@@ -47,3 +47,4 @@ ESP32-C3 PINOUT SEEDUINO XIAO (to be used as int e.g. `#define LED_PIN 2`)
 |?         ?|
 ------------
 ```
+ESP32C3 - Only one ADC unit: use: `ADC_UNIT_1`. ADC pins: ADC_CHANNEL_2 (GPIO2), ADC_CHANNEL_3, ADC_CHANNEL_4 
